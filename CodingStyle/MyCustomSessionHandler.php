@@ -50,8 +50,8 @@ class MyCustomSessionHandler implements SessionHandlerInterface
 
     public function write($session_id, $session_data): bool
     {
-        $sql = "INSERT INTO $this->table_sess SET 
-                $this->col_sid=" . $this->db->quote($session_id) .",
+        $sql = "INSERT INTO $this->table_sess 
+                SET $this->col_sid=" . $this->db->quote($session_id) .",
                 $this->col_expiry=" . $this->db->quote($this->expiry) . ",
                 $this->col_data=" . $this->db->quote($session_data) . " 
                 ON DUPLICATE KEY UPDATE
